@@ -13,7 +13,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			//Adde new for email sending START
+			emailMsgTemplate: {
+				SecureToken: "c1cad838-3de0-485d-955c-d71228c94cd4",
+				To: "juanca86@gmail.com",
+				From: "dirpro4g@gmail.com",
+				Subject: "This is the subject",
+				Body: "And this is the body"
+			}
+			//Adde new for email sending END
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -41,7 +50,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			//Adde new for email sending START
+			sendEmail: () => {
+				const store = getStore();
+				console.log(store.emailMsgTemplate);
+				Email.send(store.emailMsgTemplate).then(message => alert("mail sent successfully"));
+				//return message;
+				//setStore({ demo: demo });
 			}
+			//Adde new for email sending STOP
 		}
 	};
 };
