@@ -58,6 +58,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				Email.send(store.emailMsgTemplate).then(message => alert("mail sent successfully"));
 				//return message;
 				//setStore({ demo: demo });
+			},
+			addEmailScript: () => {
+				let externalScript = document.createElement("script");
+				externalScript.setAttribute("src", "https://smtpjs.com/v3/smtp.js");
+				document.head.appendChild(externalScript);
 			}
 			//Adde new for email sending STOP
 		}

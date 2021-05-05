@@ -8,8 +8,8 @@ export const SendEmail = () => {
 
 	return (
 		<div>
-			<script src="https://smtpjs.com/v3/smtp.js" />
 			<input type="button" value="Send Email" onClick={() => actions.sendEmail()} />
+			<script>{actions.addEmailScript()}</script>
 		</div>
 	);
 };
